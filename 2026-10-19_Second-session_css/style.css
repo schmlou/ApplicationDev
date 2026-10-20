@@ -1,0 +1,59 @@
+p {
+    color:red;
+}
+
+a {
+    color:goldenrod;
+    background-color: aquamarine;
+    font-weight: bold;
+}
+
+h1 {
+    background-color: darkmagenta;
+}
+
+#specific-tag {
+    color: peru;
+    border: 1px solid purple;
+    padding: 20px 20px 10px 0px;
+    margin-left: 100px;
+}
+
+.something-text {
+    color: orchid;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: blue;
+}
+#mypack {
+    border-style: dotted;
+    border-color: black;
+}
+
+.frogg{
+    font: bold;
+    font-size: x-large;
+}
+
+#myname{
+    color: brown;
+}
+
+h1 a {
+    color: blueviolet;
+}
+
+body{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMgQnDdhXyKaEk4gidN9gx_tWBAsBpow1E5lQnGlHqxWz4ag3zGf8o8Mo&s=10);
+    background-size: cover;
+}
+
+li a {
+    color: orange;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: blue;
+    text-decoration: underline;
+    font-size: xx-large;
+}
