@@ -38,7 +38,49 @@ for (let i = 0; i < latitudes.length; i++) {
 // Task 2:
 // - Implement a function named decimalToDMS(value) to convert decimal degrees to degrees, minutes and seconds (like this https://applications.pgc.umn.edu/convert/)
 
+function decimalToDMS(decimalDegrees) {
+    // check if the input is a finite number
+    if (!Number.isFinite(decimalDegrees)){
+        return "Not a valid input";
+    }
+    // possible decimal Degrees can be negative (-) but for calcualtions degrees, minutes and second are always needed in positive
+    // first step is to store sign
+    let sign;
+    if (decimalDegrees < 0 ) {
+        sign = "-";
+    } else {
+        sign = "";
+    }
+    // Math.abs() removes the sign --> calculated without this step in beginning and negative values gave had double minus sign
+    const absDegree = Math.abs(decimalDegrees);
+    // the degree can be taken from the original decimal degrees -> Math.floor() removes decimals
+    // the rest of decimal degree is used to calculate minutes and seconds
+    let degrees = Math.floor(absDegree);
+    // decimal minutes uses rest x 60 because 1 degree has 60 minutes
+    const decimalMin = (absDegree - degrees) * 60;
+    let min = Math.floor(decimalMin);
+    // use leftovers from minutes for second and round it to 2 decimals
+    // Number() for making sure sec-output is number and not text
+    let sec = Number(((decimalMin - min) * 60).toFixed(2))
+    // to make sure 60 means +1 value higher -> 60 seconds = 1 min
+    // check seconds first, because min could therefore become also 60
+    // set value to 0, so no "multi-use" of same values
+    if (sec === 60) {
+        sec = 0;
+        min =  min + 1;
+    }
+    if (min === 60) {
+        min = 0;
+        degrees = degrees + 1;
+    }
+    
 
+    // return the single values as an usable output
+    return sign + degrees + "° " + min + "' " + sec.toFixed(2) + '"';
+}
+
+// Test with node.js in VS-Code Terminal
+console.log(decimalToDMS(-42.021))
 
 
 
