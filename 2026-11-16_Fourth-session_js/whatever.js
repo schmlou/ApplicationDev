@@ -97,3 +97,61 @@ let student = {
 };
 
 console.log(student.name);
+
+document.querySelector("#edu").style.color = "green";
+console.log(edu);
+
+document.querySelector("#cts").textContent = "This text was rewritten by a frog in the JS file";
+document.querySelector("#cts").style.color = "purple";
+document.querySelector("#cts").textContent = calulateAverage(grades);
+
+let eyebrow = document.querySelector(".eyebrow");
+
+cts.addEventListener("click", function() {
+    console.log("CTS section was clicked");
+})
+
+
+const darkMode = document.querySelector("#dark-mode");
+const lightMode = document.querySelector("#light-mode");
+
+darkMode.addEventListener("click", function() {
+    document.body.style.backgroundColor = "black";
+    document.body.style.color = "white";
+})
+
+lightMode.addEventListener("click", function() {
+    document.body.style.backgroundColor = "white";
+    document.body.style.color = "black";
+})
+
+let isExpanded = false;
+
+document.querySelector("#expand-button").addEventListener("click", function() {
+    if (isExpanded) {
+        document.querySelector("#second-p").style.display = "block";
+        document.querySelector("#expand-button").textContent = "Close";
+    } else {
+        document.querySelector("#second-p").style.display = "none";
+        document.querySelector("#expand-button").textContent = "Expand";
+    }
+    isExpanded = !isExpanded;
+})
+
+let randomNumber = Math.floor(Math.random() * 9);
+console.log(randomNumber);
+
+document.querySelector("#cell-" + randomNumber).classList.add("bomb");
+
+document.querySelectorAll(".cell").forEach(function(cell) {
+    cell.addEventListener("click", function(e) {
+        for(let i=0; i < e.target.classList.length; i++) {
+            if (e.target.classList[i] === "bomb") {
+                console.log("You clicked on a bomb! Game over.");
+                e.target.style.backgroundColor = "red";
+            } else {
+                e.target.style.backgroundColor = "green";
+            }
+        }
+    })
+})
