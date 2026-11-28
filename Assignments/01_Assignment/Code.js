@@ -114,3 +114,12 @@ console.log(countValidCoordinates(latitudes, longitudes))
 
 // Task 4:
 // - Use loops and your function from Task 1 to print valid coordinates in decimal and DMS forms
+
+//loop through arrays
+for (i = 0; i < latitudes.length; i++) {
+    // check for validity of coordinate-pair
+    // fi valid, print values (decimal) and DMS to console
+    if (isValidCoordinate(latitudes[i], longitudes[i])) {
+        console.log("Valid: " + latitudes[i] + " " + longitudes[i] + " = DMS: " + decimalToDMS(latitudes[i]) + " " + decimalToDMS(longitudes[i]));
+    }
+}
