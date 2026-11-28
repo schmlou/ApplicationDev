@@ -87,6 +87,27 @@ console.log(decimalToDMS(-42.021))
 // Task 3:
 // - Implement a function named countValidCoordinates(latitudes, longitudes) to count the number of valid coordinates in the list. Use your function from Task 1.
 
+// set counter to 0 for start
+let validCoordinates = 0;
+
+
+// define function to count valid coordinates from given input arrays
+function countValidCoordinates(latitude, longitude) {
+    //loop thorugh arrays to check each pair for correctness
+    // choose to do as pair --> if one of long/lat is invalid, whole pair invalid for real-world use 
+    for (i = 0; i < latitude.length; i++) {
+        // use function from task 1
+        if (isValidCoordinate(latitude[i], longitude[i])) {
+            // if passing validation increase counter by 1
+            validCoordinates++;
+        }
+    }
+    //after chekcing whole array return counter of valid coordinate-pairs
+    return validCoordinates;
+}
+
+//test with node.js in VS-Code terminal
+console.log(countValidCoordinates(latitudes, longitudes))
 
 
 
